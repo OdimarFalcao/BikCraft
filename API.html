@@ -7,6 +7,7 @@
   <title>API | Bikecraft</title>
   <meta name="description" content="Termos e condições.">
   <link rel="stylesheet" href="./css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
   <!--">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -43,13 +44,13 @@
 
     <div class="termos font-2-s cor-10 container">
       <h2 class="font-1-l cor-11">1. Essa página vai explicar como fazer uma requisição para uma API de bicicletas</h2>
-      <p>1.1 Primeiro Pegamos o seguinte link: <a href="https://api-ninjas.com/api/motorcycles">https://api.api-ninjas.com/v1/motorcycles?make=kawasaki&model=ninja</a></p>
-      <p>1.2 Depois vamos pegar um método usando Ajax no seguinte site, que explica como usar a API, que retornar o nome de algumas motos: <a href="https://api-ninjas.com/api/motorcycles">https://api-ninjas.com/api/motorcycles</a></p>
+      <p>1.1 Primeiro Pegamos o seguinte link: <a href="https://jikan.moe/">https://jikan.moe/</a></p>
+      <p>1.2 Depois usamos Axios para fazer a requisição para a API, assim ela vai nos mandar os dados que precisamos</p>
       <p>1.3 Depois de fazer a requisição, vamos usar JavaScript para ler os dados do Json recebido e adicionamos os mesmos de forma dinâmica na div abaixo:</p>
       
     </div>
 
-    <div id="MOTOS">
+    <div id="dados">
 
     </div>
 
@@ -91,20 +92,33 @@
       <p class="footer-copy font-2-m cor-6">Bikcraft © Alguns direitos reservados.</p>
     </div>
   </footer>
-  <script>
-    $.ajax({
-        method: 'GET',
-        url: 'https://api.api-ninjas.com/v1/motorcycles?make=kawasaki&model=ninja',
-        headers: { 'X-Api-Key': 'YOUR_API_KEY'},
-        contentType: 'application/json',
-        success: function(result) {
-            console.log(result);
-        },
-        error: function ajaxError(jqXHR) {
-            console.error('Error: ', jqXHR.responseText);
-        }
-    });
-  </script>
 </body>
+
+<script>
+
+    // Quer usar async/await? Adicione o prefixo `async` na sua função/método
+    async function getBikes() {
+        try {
+            const response = await axios.get('https://api.jikan.moe/v4/anime');
+            console.log(response);
+
+            const div = document.getElementById("dados");
+
+            const animes = response.data.data;
+
+            console.log(animes);
+
+            animes.forEach(anime => {
+                let nome = document.createTextNode(anime.title);
+                dados.appendChild(nome);
+            });
+            
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
+    getBikes();
+  </script>
 
 </html>
