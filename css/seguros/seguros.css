@@ -58,8 +58,39 @@
   grid-column: 1/-1;
 }
 
+.radio-opt {
+  display: flex;
+  margin-bottom: 30px;
+  margin-top: 30px;
+  justify-content: center;
+  
+}
+
+.radio-opt-1 {
+  margin-right: 100px;
+}
+
 @media (max-width: 800px) {
   .seguros {
     grid-template-columns: 1fr;
   }
+}
+
+input[type=radio] {
+  display: none;
+}
+
+#labelOpcao1, #labelOpcao2 {
+  padding: 10px;
+  background-color: #000000; /* fundo preto */
+  color: white;
+  cursor: pointer;
+  border-radius: 12px; /* bordas redondas */
+  display: inline-block; /* coloca os botões um ao lado do outro */
+  margin-right: 10px; /* adiciona espaço entre os botões */
+}
+
+#opcao1:checked + #labelOpcao1, #opcao2:checked + #labelOpcao2 {
+  background-color: #ffffff; /* fundo branco */
+  color: black;
 }
