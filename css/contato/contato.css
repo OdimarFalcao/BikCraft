@@ -51,5 +51,15 @@
 }
 
 .form-group button:hover {
-    background-color: #ffbb00; /* Cor de fundo do botão ao passar o mouse */
+    animation: slidein 0.5s ease-in forwards;
+}
+  
+@keyframes slidein {
+from {
+    background-color: #ffbb00;
+}
+
+to {
+    background-color: #434341;
+}
 }
