@@ -85,9 +85,7 @@
 
 .header-menu .dropdown .dropdown-content a {
   color: var(--cor-0);
-  padding: 12px 16px;
   text-decoration: none;
-  display: block;
 }
 
 .header-menu .dropdown:hover .dropdown-content {
@@ -101,7 +99,7 @@
 .dropdown-content-submenu {
   display: none;
   position: absolute;
-  left: 100%;
+  right: 100%;
   top: 0;
   min-width: 160px;
   z-index: 1;
@@ -113,9 +111,7 @@
 
 .dropdown-content-submenu a {
   color: var(--cor-0);
-  padding: 12px 16px;
   text-decoration: none;
-  display: block;
 }
 
 .dropdown-submenu:hover .dropdown-content-submenu {
